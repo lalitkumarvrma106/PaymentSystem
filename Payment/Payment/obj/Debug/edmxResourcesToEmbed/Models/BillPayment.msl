@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BillPaymentModelStoreContainer" CdmEntityContainer="BillPaymentEntities">
+    <EntitySetMapping Name="debit_creditcard_table">
+      <EntityTypeMapping TypeName="BillPaymentModel.debit_creditcard_table">
+        <MappingFragment StoreEntitySet="debit_creditcard_table">
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="CVVNumber" ColumnName="CVVNumber" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="AccountHolderName" ColumnName="AccountHolderName" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="table_Registration">
+      <EntityTypeMapping TypeName="BillPaymentModel.table_Registration">
+        <MappingFragment StoreEntitySet="table_Registration">
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="Plantype" ColumnName="Plantype" />
+          <ScalarProperty Name="SecurityQuestion" ColumnName="SecurityQuestion" />
+          <ScalarProperty Name="SecurityAnswer" ColumnName="SecurityAnswer" />
+          <ScalarProperty Name="NewPassword" ColumnName="NewPassword" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Operator_Table1">
+      <EntityTypeMapping TypeName="BillPaymentModel.Operator_Table1">
+        <MappingFragment StoreEntitySet="Operator_Table1">
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="MRP" ColumnName="MRP" />
+          <ScalarProperty Name="ValidateDays" ColumnName="ValidateDays" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Roaming" ColumnName="Roaming" />
+          <ScalarProperty Name="SMS" ColumnName="SMS" />
+          <ScalarProperty Name="DataSpeed" ColumnName="DataSpeed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostPaids">
+      <EntityTypeMapping TypeName="BillPaymentModel.PostPaid">
+        <MappingFragment StoreEntitySet="PostPaid">
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrePaids">
+      <EntityTypeMapping TypeName="BillPaymentModel.PrePaid">
+        <MappingFragment StoreEntitySet="PrePaid">
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="table_Login">
+      <EntityTypeMapping TypeName="BillPaymentModel.table_Login">
+        <MappingFragment StoreEntitySet="table_Login">
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

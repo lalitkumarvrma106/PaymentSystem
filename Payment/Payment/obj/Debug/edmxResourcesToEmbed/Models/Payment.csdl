@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PaymentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="debit_creditcard">
+    <Key>
+      <PropertyRef Name="CardNumber" />
+    </Key>
+    <Property Name="CardNumber" Type="Int64" Nullable="false" />
+    <Property Name="CVVNumber" Type="Int32" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="0" />
+    <Property Name="AccountHolderName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserPassword" Type="Int32" />
+    <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="table_Registration">
+    <Key>
+      <PropertyRef Name="MobileNumber" />
+    </Key>
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNumber" Type="Int64" Nullable="false" />
+    <Property Name="EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Plantype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SecurityQuestion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SecurityAnswer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NewPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ConfirmPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="PaymentEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="debit_creditcard" EntityType="Self.debit_creditcard" />
+    <EntitySet Name="table_Registration" EntityType="Self.table_Registration" />
+    <FunctionImport Name="Pro_Detail">
+      <Parameter Name="CardNumber" Mode="In" Type="Int64" />
+      <Parameter Name="CVVNumber" Mode="In" Type="Int32" />
+      <Parameter Name="ExpiryDate" Mode="In" Type="DateTime" />
+      <Parameter Name="FinalRate" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Pro_NetBanking">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+      <Parameter Name="UserPassword" Mode="In" Type="Int32" />
+      <Parameter Name="BankName" Mode="In" Type="String" />
+      <Parameter Name="FinalRate" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="proc_Login" ReturnType="Collection(PaymentModel.proc_Login_Result)">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="ConfirmPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_MobRegistration">
+      <Parameter Name="CustomerName" Mode="In" Type="String" />
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="EmailID" Mode="In" Type="String" />
+      <Parameter Name="Plantype" Mode="In" Type="String" />
+      <Parameter Name="SecurityQuestion" Mode="In" Type="String" />
+      <Parameter Name="SecurityAnswer" Mode="In" Type="String" />
+      <Parameter Name="NewPassword" Mode="In" Type="String" />
+      <Parameter Name="ConfirmPassword" Mode="In" Type="String" />
+      <Parameter Name="Operator" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_Login1">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="ConfirmPassword" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="proc_Login_Result">
+    <Property Type="Int64" Name="MobileNumber" Nullable="true" />
+    <Property Type="String" Name="ConfirmPassword" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>

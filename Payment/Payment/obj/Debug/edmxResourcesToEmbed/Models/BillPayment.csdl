@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BillPaymentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="debit_creditcard_table">
+    <Key>
+      <PropertyRef Name="CardNumber" />
+    </Key>
+    <Property Name="CardNumber" Type="Int64" Nullable="false" />
+    <Property Name="CVVNumber" Type="Int32" />
+    <Property Name="ExpiryDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AccountHolderName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserPassword" Type="Int32" />
+    <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="table_Registration">
+    <Key>
+      <PropertyRef Name="MobileNumber" />
+    </Key>
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MobileNumber" Type="Int64" Nullable="false" />
+    <Property Name="EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Plantype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SecurityQuestion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SecurityAnswer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NewPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ConfirmPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PostPaid" Relationship="BillPaymentModel.FK__PostPaid__Mobile__534D60F1" FromRole="table_Registration" ToRole="PostPaid" />
+    <NavigationProperty Name="PrePaid" Relationship="BillPaymentModel.FK__PrePaid__MobileN__5441852A" FromRole="table_Registration" ToRole="PrePaid" />
+    <NavigationProperty Name="table_Login" Relationship="BillPaymentModel.FK__table_Log__Mobil__5535A963" FromRole="table_Registration" ToRole="table_Login" />
+  </EntityType>
+  <EntityType Name="Operator_Table1">
+    <Key>
+      <PropertyRef Name="Operator" />
+      <PropertyRef Name="MRP" />
+      <PropertyRef Name="ValidateDays" />
+      <PropertyRef Name="Descriptions" />
+      <PropertyRef Name="Roaming" />
+      <PropertyRef Name="SMS" />
+      <PropertyRef Name="DataSpeed" />
+    </Key>
+    <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MRP" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ValidateDays" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descriptions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Roaming" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SMS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataSpeed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="BillPaymentEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="debit_creditcard_table" EntityType="Self.debit_creditcard_table" />
+    <EntitySet Name="table_Registration" EntityType="Self.table_Registration" />
+    <EntitySet Name="Operator_Table1" EntityType="Self.Operator_Table1" />
+    <EntitySet Name="PostPaids" EntityType="BillPaymentModel.PostPaid" />
+    <AssociationSet Name="FK__PostPaid__Mobile__534D60F1" Association="BillPaymentModel.FK__PostPaid__Mobile__534D60F1">
+      <End Role="table_Registration" EntitySet="table_Registration" />
+      <End Role="PostPaid" EntitySet="PostPaids" />
+    </AssociationSet>
+    <EntitySet Name="PrePaids" EntityType="BillPaymentModel.PrePaid" />
+    <EntitySet Name="table_Login" EntityType="BillPaymentModel.table_Login" />
+    <AssociationSet Name="FK__PrePaid__MobileN__5441852A" Association="BillPaymentModel.FK__PrePaid__MobileN__5441852A">
+      <End Role="table_Registration" EntitySet="table_Registration" />
+      <End Role="PrePaid" EntitySet="PrePaids" />
+    </AssociationSet>
+    <AssociationSet Name="FK__table_Log__Mobil__5535A963" Association="BillPaymentModel.FK__table_Log__Mobil__5535A963">
+      <End Role="table_Registration" EntitySet="table_Registration" />
+      <End Role="table_Login" EntitySet="table_Login" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PostPaid">
+    <Key>
+      <PropertyRef Name="MobileNumber" />
+    </Key>
+    <Property Name="MobileNumber" Type="Int64" Nullable="false" />
+    <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="table_Registration" Relationship="BillPaymentModel.FK__PostPaid__Mobile__534D60F1" FromRole="PostPaid" ToRole="table_Registration" />
+  </EntityType>
+  <Association Name="FK__PostPaid__Mobile__534D60F1">
+    <End Type="BillPaymentModel.table_Registration" Role="table_Registration" Multiplicity="1" />
+    <End Type="BillPaymentModel.PostPaid" Role="PostPaid" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="table_Registration">
+        <PropertyRef Name="MobileNumber" />
+      </Principal>
+      <Dependent Role="PostPaid">
+        <PropertyRef Name="MobileNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PrePaid">
+    <Key>
+      <PropertyRef Name="MobileNumber" />
+    </Key>
+    <Property Name="MobileNumber" Type="Int64" Nullable="false" />
+    <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="table_Registration" Relationship="BillPaymentModel.FK__PrePaid__MobileN__5441852A" FromRole="PrePaid" ToRole="table_Registration" />
+  </EntityType>
+  <EntityType Name="table_Login">
+    <Key>
+      <PropertyRef Name="MobileNumber" />
+    </Key>
+    <Property Name="MobileNumber" Type="Int64" Nullable="false" />
+    <Property Name="ConfirmPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="table_Registration" Relationship="BillPaymentModel.FK__table_Log__Mobil__5535A963" FromRole="table_Login" ToRole="table_Registration" />
+  </EntityType>
+  <Association Name="FK__PrePaid__MobileN__5441852A">
+    <End Type="BillPaymentModel.table_Registration" Role="table_Registration" Multiplicity="1" />
+    <End Type="BillPaymentModel.PrePaid" Role="PrePaid" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="table_Registration">
+        <PropertyRef Name="MobileNumber" />
+      </Principal>
+      <Dependent Role="PrePaid">
+        <PropertyRef Name="MobileNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__table_Log__Mobil__5535A963">
+    <End Type="BillPaymentModel.table_Registration" Role="table_Registration" Multiplicity="1" />
+    <End Type="BillPaymentModel.table_Login" Role="table_Login" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="table_Registration">
+        <PropertyRef Name="MobileNumber" />
+      </Principal>
+      <Dependent Role="table_Login">
+        <PropertyRef Name="MobileNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

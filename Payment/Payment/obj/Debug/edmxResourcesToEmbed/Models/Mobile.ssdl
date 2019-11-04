@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MobileModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="debit_creditcard_table">
+    <Key>
+      <PropertyRef Name="CardNumber" />
+    </Key>
+    <Property Name="CardNumber" Type="bigint" Nullable="false" />
+    <Property Name="CVVNumber" Type="int" />
+    <Property Name="ExpiryDate" Type="varchar" MaxLength="50" />
+    <Property Name="AccountHolderName" Type="varchar" MaxLength="50" />
+    <Property Name="BankName" Type="varchar" MaxLength="50" />
+    <Property Name="UserID" Type="varchar" MaxLength="50" />
+    <Property Name="UserPassword" Type="int" />
+    <Property Name="Balance" Type="money" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Mobile.dbo.Operator_Table1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Operator_Table1">
+    <Key>
+      <PropertyRef Name="Operator" />
+      <PropertyRef Name="MRP" />
+      <PropertyRef Name="ValidateDays" />
+      <PropertyRef Name="Descriptions" />
+      <PropertyRef Name="Roaming" />
+      <PropertyRef Name="SMS" />
+      <PropertyRef Name="DataSpeed" />
+    </Key>
+    <Property Name="Operator" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MRP" Type="money" Nullable="false" />
+    <Property Name="ValidateDays" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descriptions" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Roaming" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SMS" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DataSpeed" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="table_Registration">
+    <Key>
+      <PropertyRef Name="MobileNumber" />
+    </Key>
+    <Property Name="CustomerName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MobileNumber" Type="bigint" Nullable="false" />
+    <Property Name="EmailID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Plantype" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SecurityQuestion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SecurityAnswer" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NewPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ConfirmPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Operator" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Function Name="Display_Values" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Operator" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Display_Values1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Operator" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Display_Values2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Operator" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Display_Values3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Operator" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Display_Values4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Operator" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Display_Values5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Operator" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Login_PostPaid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="Login_Validations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="ConfirmPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="LoginVerify" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="Pro_CardDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CardNumber" Type="bigint" Mode="In" />
+    <Parameter Name="CVVNumber" Type="int" Mode="In" />
+    <Parameter Name="ExpiryDate" Type="date" Mode="In" />
+    <Parameter Name="FinalRate" Type="money" Mode="In" />
+  </Function>
+  <Function Name="Pro_CardDetails1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CardNumber" Type="bigint" Mode="In" />
+    <Parameter Name="CVVNumber" Type="int" Mode="In" />
+    <Parameter Name="ExpiryDate" Type="varchar" Mode="In" />
+    <Parameter Name="FinalRate" Type="money" Mode="In" />
+  </Function>
+  <Function Name="Pro_CardDetailss" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CardNumber" Type="bigint" Mode="In" />
+    <Parameter Name="CVVNumber" Type="int" Mode="In" />
+    <Parameter Name="ExpiryDate" Type="varchar" Mode="In" />
+    <Parameter Name="FinalRate" Type="money" Mode="In" />
+  </Function>
+  <Function Name="Pro_Detail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CardNumber" Type="bigint" Mode="In" />
+    <Parameter Name="CVVNumber" Type="int" Mode="In" />
+    <Parameter Name="ExpiryDate" Type="date" Mode="In" />
+    <Parameter Name="FinalRate" Type="money" Mode="In" />
+  </Function>
+  <Function Name="Pro_NetBanking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+    <Parameter Name="UserPassword" Type="int" Mode="In" />
+    <Parameter Name="BankName" Type="varchar" Mode="In" />
+    <Parameter Name="FinalRate" Type="money" Mode="In" />
+  </Function>
+  <Function Name="Pro_NetBankingdetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+    <Parameter Name="UserPassword" Type="int" Mode="In" />
+    <Parameter Name="BankName" Type="varchar" Mode="In" />
+    <Parameter Name="FinalRate" Type="money" Mode="In" />
+  </Function>
+  <Function Name="proc_CheckNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="proc_CheckNumber1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="Operator" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_ForgotPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="SecurityQuestion" Type="varchar" Mode="In" />
+    <Parameter Name="SecurityAnswer" Type="varchar" Mode="In" />
+    <Parameter Name="NewPassword" Type="varchar" Mode="In" />
+    <Parameter Name="ConfirmPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_ForgotPassword1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="SecurityQuestion" Type="varchar" Mode="In" />
+    <Parameter Name="SecurityAnswer" Type="varchar" Mode="In" />
+    <Parameter Name="NewPassword" Type="varchar" Mode="In" />
+    <Parameter Name="ConfirmPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_ForgotPassword2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="SecurityQuestion" Type="varchar" Mode="In" />
+    <Parameter Name="SecurityAnswer" Type="varchar" Mode="In" />
+    <Parameter Name="NewPassword" Type="varchar" Mode="In" />
+    <Parameter Name="ConfirmPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_ForgotPassword3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="SecurityQuestion" Type="varchar" Mode="In" />
+    <Parameter Name="SecurityAnswer" Type="varchar" Mode="In" />
+    <Parameter Name="NewPassword" Type="varchar" Mode="In" />
+    <Parameter Name="ConfirmPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_ForgotPassword4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="SecurityQuestion" Type="varchar" Mode="In" />
+    <Parameter Name="SecurityAnswer" Type="varchar" Mode="In" />
+    <Parameter Name="NewPassword" Type="varchar" Mode="In" />
+    <Parameter Name="ConfirmPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_ForgotPasswordLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="ConfirmPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_ForgotPasswordRegister" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="SecurityQuestion" Type="varchar" Mode="In" />
+    <Parameter Name="SecurityAnswer" Type="varchar" Mode="In" />
+    <Parameter Name="NewPassword" Type="varchar" Mode="In" />
+    <Parameter Name="ConfirmPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="proc_Login1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="ConfirmPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="proc_Login2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="ConfirmPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="proc_MobRegistration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerName" Type="varchar" Mode="In" />
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="EmailID" Type="varchar" Mode="In" />
+    <Parameter Name="Plantype" Type="varchar" Mode="In" />
+    <Parameter Name="SecurityQuestion" Type="varchar" Mode="In" />
+    <Parameter Name="SecurityAnswer" Type="varchar" Mode="In" />
+    <Parameter Name="NewPassword" Type="varchar" Mode="In" />
+    <Parameter Name="ConfirmPassword" Type="varchar" Mode="In" />
+    <Parameter Name="Operator" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="proc_PostPaid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="Operator" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="proc_PostPaid1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="Operator" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="proc_PostPaid2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="Operator" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Validation_CheckNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="Operator" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Validation_PostPaid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MobileNumber" Type="bigint" Mode="In" />
+    <Parameter Name="Operator" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="MobileModelStoreContainer">
+    <EntitySet Name="debit_creditcard_table" EntityType="Self.debit_creditcard_table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="table_Registration" EntityType="Self.table_Registration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Operator_Table1" EntityType="Self.Operator_Table1" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Operator_Table1].[Operator] AS [Operator], 
+    [Operator_Table1].[MRP] AS [MRP], 
+    [Operator_Table1].[ValidateDays] AS [ValidateDays], 
+    [Operator_Table1].[Descriptions] AS [Descriptions], 
+    [Operator_Table1].[Roaming] AS [Roaming], 
+    [Operator_Table1].[SMS] AS [SMS], 
+    [Operator_Table1].[DataSpeed] AS [DataSpeed]
+    FROM [dbo].[Operator_Table1] AS [Operator_Table1]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

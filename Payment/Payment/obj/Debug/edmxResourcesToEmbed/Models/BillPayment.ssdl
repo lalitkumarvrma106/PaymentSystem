@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BillPaymentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="debit_creditcard_table">
+    <Key>
+      <PropertyRef Name="CardNumber" />
+    </Key>
+    <Property Name="CardNumber" Type="bigint" Nullable="false" />
+    <Property Name="CVVNumber" Type="int" />
+    <Property Name="ExpiryDate" Type="varchar" MaxLength="50" />
+    <Property Name="AccountHolderName" Type="varchar" MaxLength="50" />
+    <Property Name="BankName" Type="varchar" MaxLength="50" />
+    <Property Name="UserID" Type="varchar" MaxLength="50" />
+    <Property Name="UserPassword" Type="int" />
+    <Property Name="Balance" Type="money" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BillPayment.dbo.Operator_Table1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Operator_Table1">
+    <Key>
+      <PropertyRef Name="Operator" />
+      <PropertyRef Name="MRP" />
+      <PropertyRef Name="ValidateDays" />
+      <PropertyRef Name="Descriptions" />
+      <PropertyRef Name="Roaming" />
+      <PropertyRef Name="SMS" />
+      <PropertyRef Name="DataSpeed" />
+    </Key>
+    <Property Name="Operator" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MRP" Type="money" Nullable="false" />
+    <Property Name="ValidateDays" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descriptions" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Roaming" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SMS" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DataSpeed" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BillPayment.dbo.PostPaid' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PostPaid">
+    <Key>
+      <PropertyRef Name="MobileNumber" />
+    </Key>
+    <Property Name="MobileNumber" Type="bigint" Nullable="false" />
+    <Property Name="Operator" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BillPayment.dbo.PrePaid' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PrePaid">
+    <Key>
+      <PropertyRef Name="MobileNumber" />
+    </Key>
+    <Property Name="MobileNumber" Type="bigint" Nullable="false" />
+    <Property Name="Operator" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BillPayment.dbo.table_Login' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="table_Login">
+    <Key>
+      <PropertyRef Name="MobileNumber" />
+    </Key>
+    <Property Name="MobileNumber" Type="bigint" Nullable="false" />
+    <Property Name="ConfirmPassword" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="table_Registration">
+    <Key>
+      <PropertyRef Name="MobileNumber" />
+    </Key>
+    <Property Name="CustomerName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MobileNumber" Type="bigint" Nullable="false" />
+    <Property Name="EmailID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Plantype" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SecurityQuestion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SecurityAnswer" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NewPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ConfirmPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Operator" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__PostPaid__Mobile__534D60F1">
+    <End Role="table_Registration" Type="Self.table_Registration" Multiplicity="1" />
+    <End Role="PostPaid" Type="Self.PostPaid" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="table_Registration">
+        <PropertyRef Name="MobileNumber" />
+      </Principal>
+      <Dependent Role="PostPaid">
+        <PropertyRef Name="MobileNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PrePaid__MobileN__5441852A">
+    <End Role="table_Registration" Type="Self.table_Registration" Multiplicity="1" />
+    <End Role="PrePaid" Type="Self.PrePaid" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="table_Registration">
+        <PropertyRef Name="MobileNumber" />
+      </Principal>
+      <Dependent Role="PrePaid">
+        <PropertyRef Name="MobileNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__table_Log__Mobil__5535A963">
+    <End Role="table_Registration" Type="Self.table_Registration" Multiplicity="1" />
+    <End Role="table_Login" Type="Self.table_Login" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="table_Registration">
+        <PropertyRef Name="MobileNumber" />
+      </Principal>
+      <Dependent Role="table_Login">
+        <PropertyRef Name="MobileNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BillPaymentModelStoreContainer">
+    <EntitySet Name="debit_creditcard_table" EntityType="Self.debit_creditcard_table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="table_Registration" EntityType="Self.table_Registration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Operator_Table1" EntityType="Self.Operator_Table1" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Operator_Table1].[Operator] AS [Operator], 
+    [Operator_Table1].[MRP] AS [MRP], 
+    [Operator_Table1].[ValidateDays] AS [ValidateDays], 
+    [Operator_Table1].[Descriptions] AS [Descriptions], 
+    [Operator_Table1].[Roaming] AS [Roaming], 
+    [Operator_Table1].[SMS] AS [SMS], 
+    [Operator_Table1].[DataSpeed] AS [DataSpeed]
+    FROM [dbo].[Operator_Table1] AS [Operator_Table1]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PostPaid" EntityType="Self.PostPaid" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PostPaid].[MobileNumber] AS [MobileNumber], 
+    [PostPaid].[Operator] AS [Operator]
+    FROM [dbo].[PostPaid] AS [PostPaid]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PrePaid" EntityType="Self.PrePaid" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PrePaid].[MobileNumber] AS [MobileNumber], 
+    [PrePaid].[Operator] AS [Operator]
+    FROM [dbo].[PrePaid] AS [PrePaid]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="table_Login" EntityType="Self.table_Login" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [table_Login].[MobileNumber] AS [MobileNumber], 
+    [table_Login].[ConfirmPassword] AS [ConfirmPassword]
+    FROM [dbo].[table_Login] AS [table_Login]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__PostPaid__Mobile__534D60F1" Association="Self.FK__PostPaid__Mobile__534D60F1">
+      <End Role="table_Registration" EntitySet="table_Registration" />
+      <End Role="PostPaid" EntitySet="PostPaid" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PrePaid__MobileN__5441852A" Association="Self.FK__PrePaid__MobileN__5441852A">
+      <End Role="table_Registration" EntitySet="table_Registration" />
+      <End Role="PrePaid" EntitySet="PrePaid" />
+    </AssociationSet>
+    <AssociationSet Name="FK__table_Log__Mobil__5535A963" Association="Self.FK__table_Log__Mobil__5535A963">
+      <End Role="table_Registration" EntitySet="table_Registration" />
+      <End Role="table_Login" EntitySet="table_Login" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

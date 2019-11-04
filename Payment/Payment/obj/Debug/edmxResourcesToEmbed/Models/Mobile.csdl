@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MobileModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="table_Registration">
+    <Key>
+      <PropertyRef Name="MobileNumber" />
+    </Key>
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MobileNumber" Type="Int64" Nullable="false" />
+    <Property Name="EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Plantype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SecurityQuestion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SecurityAnswer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NewPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ConfirmPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Operator" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="MobileEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="table_Registration" EntityType="Self.table_Registration" />
+    <FunctionImport Name="Pro_Detail">
+      <Parameter Name="CardNumber" Mode="In" Type="Int64" />
+      <Parameter Name="CVVNumber" Mode="In" Type="Int32" />
+      <Parameter Name="ExpiryDate" Mode="In" Type="DateTime" />
+      <Parameter Name="FinalRate" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Pro_NetBanking">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+      <Parameter Name="UserPassword" Mode="In" Type="Int32" />
+      <Parameter Name="BankName" Mode="In" Type="String" />
+      <Parameter Name="FinalRate" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="proc_Login1">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="ConfirmPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_MobRegistration">
+      <Parameter Name="CustomerName" Mode="In" Type="String" />
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="EmailID" Mode="In" Type="String" />
+      <Parameter Name="Plantype" Mode="In" Type="String" />
+      <Parameter Name="SecurityQuestion" Mode="In" Type="String" />
+      <Parameter Name="SecurityAnswer" Mode="In" Type="String" />
+      <Parameter Name="NewPassword" Mode="In" Type="String" />
+      <Parameter Name="ConfirmPassword" Mode="In" Type="String" />
+      <Parameter Name="Operator" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Operator_Table1" EntityType="MobileModel.Operator_Table1" />
+    <FunctionImport Name="Display_Values" ReturnType="Collection(MobileModel.Display_Values_Result)">
+      <Parameter Name="Operator" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_PostPaid">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="Operator" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Display_Values1" ReturnType="Collection(MobileModel.Display_Values1_Result)">
+      <Parameter Name="Operator" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Display_Values2" ReturnType="Collection(MobileModel.Display_Values2_Result)">
+      <Parameter Name="Operator" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Display_Values3" ReturnType="Collection(MobileModel.Display_Values3_Result)">
+      <Parameter Name="Operator" Mode="In" Type="String" />
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="proc_PostPaid1" ReturnType="Collection(Int64)">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="Operator" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_PostPaid2" ReturnType="Collection(MobileModel.proc_PostPaid2_Result)">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="Operator" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_Login2" ReturnType="Collection(MobileModel.proc_Login2_Result)">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="ConfirmPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="proc_CheckNumber" ReturnType="Collection(MobileModel.proc_CheckNumber_Result)">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="proc_CheckNumber1" ReturnType="Collection(MobileModel.proc_CheckNumber1_Result)">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="Operator" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ForgotPassword">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="SecurityQuestion" Mode="In" Type="String" />
+      <Parameter Name="SecurityAnswer" Mode="In" Type="String" />
+      <Parameter Name="NewPassword" Mode="In" Type="String" />
+      <Parameter Name="ConfirmPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ForgotPassword1">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="SecurityQuestion" Mode="In" Type="String" />
+      <Parameter Name="SecurityAnswer" Mode="In" Type="String" />
+      <Parameter Name="NewPassword" Mode="In" Type="String" />
+      <Parameter Name="ConfirmPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ForgotPassword2">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="SecurityQuestion" Mode="In" Type="String" />
+      <Parameter Name="SecurityAnswer" Mode="In" Type="String" />
+      <Parameter Name="NewPassword" Mode="In" Type="String" />
+      <Parameter Name="ConfirmPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ForgotPassword3" ReturnType="Collection(MobileModel.Proc_ForgotPassword3_Result)">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="SecurityQuestion" Mode="In" Type="String" />
+      <Parameter Name="SecurityAnswer" Mode="In" Type="String" />
+      <Parameter Name="NewPassword" Mode="In" Type="String" />
+      <Parameter Name="ConfirmPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ForgotPassword4">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="SecurityQuestion" Mode="In" Type="String" />
+      <Parameter Name="SecurityAnswer" Mode="In" Type="String" />
+      <Parameter Name="NewPassword" Mode="In" Type="String" />
+      <Parameter Name="ConfirmPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ForgotPasswordLogin">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="ConfirmPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Proc_ForgotPasswordRegister">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="SecurityQuestion" Mode="In" Type="String" />
+      <Parameter Name="SecurityAnswer" Mode="In" Type="String" />
+      <Parameter Name="NewPassword" Mode="In" Type="String" />
+      <Parameter Name="ConfirmPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Display_Values31" ReturnType="Collection(MobileModel.Display_Values31_Result)">
+      <Parameter Name="Operator" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Display_Values4" ReturnType="Collection(MobileModel.Display_Values4_Result)">
+      <Parameter Name="Operator" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Display_Values5" ReturnType="Collection(MobileModel.Display_Values5_Result)">
+      <Parameter Name="Operator" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="LoginVerify" ReturnType="Collection(MobileModel.LoginVerify_Result)">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <EntitySet Name="debit_creditcard_table" EntityType="MobileModel.debit_creditcard_table" />
+    <FunctionImport Name="Pro_CardDetails">
+      <Parameter Name="CardNumber" Mode="In" Type="Int64" />
+      <Parameter Name="CVVNumber" Mode="In" Type="Int32" />
+      <Parameter Name="ExpiryDate" Mode="In" Type="DateTime" />
+      <Parameter Name="FinalRate" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Pro_CardDetails1">
+      <Parameter Name="CardNumber" Mode="In" Type="Int64" />
+      <Parameter Name="CVVNumber" Mode="In" Type="Int32" />
+      <Parameter Name="ExpiryDate" Mode="In" Type="String" />
+      <Parameter Name="FinalRate" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Pro_CardDetailss">
+      <Parameter Name="CardNumber" Mode="In" Type="Int64" />
+      <Parameter Name="CVVNumber" Mode="In" Type="Int32" />
+      <Parameter Name="ExpiryDate" Mode="In" Type="String" />
+      <Parameter Name="FinalRate" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Pro_NetBankingdetail">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+      <Parameter Name="UserPassword" Mode="In" Type="Int32" />
+      <Parameter Name="BankName" Mode="In" Type="String" />
+      <Parameter Name="FinalRate" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Login_PostPaid" ReturnType="Collection(Int32)">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="Login_Validations" ReturnType="Collection(Int32)">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="ConfirmPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Validation_PostPaid" ReturnType="Collection(Int32)">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="Operator" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Validation_CheckNumber" ReturnType="Collection(Int32)">
+      <Parameter Name="MobileNumber" Mode="In" Type="Int64" />
+      <Parameter Name="Operator" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Operator_Table1">
+    <Key>
+      <PropertyRef Name="Operator" />
+      <PropertyRef Name="MRP" />
+      <PropertyRef Name="ValidateDays" />
+      <PropertyRef Name="Descriptions" />
+      <PropertyRef Name="Roaming" />
+      <PropertyRef Name="SMS" />
+      <PropertyRef Name="DataSpeed" />
+    </Key>
+    <Property Name="Operator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MRP" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="ValidateDays" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descriptions" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Roaming" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SMS" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DataSpeed" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="Display_Values_Result">
+    <Property Type="String" Name="Operator" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="MRP" Nullable="false" Precision="19" />
+    <Property Type="String" Name="ValidateDays" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Roaming" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SMS" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DataSpeed" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Display_Values1_Result">
+    <Property Type="String" Name="Operator" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="MRP" Nullable="false" Precision="19" />
+    <Property Type="String" Name="ValidateDays" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Roaming" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SMS" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DataSpeed" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Display_Values2_Result">
+    <Property Type="String" Name="Operator" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="MRP" Nullable="false" Precision="19" />
+    <Property Type="String" Name="ValidateDays" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Roaming" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SMS" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DataSpeed" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Display_Values3_Result">
+    <Property Type="String" Name="Operator" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="MRP" Nullable="false" Precision="19" />
+    <Property Type="String" Name="ValidateDays" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Roaming" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SMS" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DataSpeed" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="proc_PostPaid2_Result">
+    <Property Type="Int64" Name="MobileNumber" Nullable="true" />
+    <Property Type="String" Name="Operator" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="proc_Login2_Result">
+    <Property Type="Int64" Name="MobileNumber" Nullable="true" />
+    <Property Type="String" Name="ConfirmPassword" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="proc_CheckNumber_Result">
+    <Property Type="Int64" Name="MobileNumber" Nullable="true" />
+    <Property Type="String" Name="Operator" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="proc_CheckNumber1_Result">
+    <Property Type="Int64" Name="MobileNumber" Nullable="true" />
+    <Property Type="String" Name="Operator" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Proc_ForgotPassword3_Result">
+    <Property Type="Int64" Name="MobileNumber" Nullable="true" />
+    <Property Type="String" Name="ConfirmPassword" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Display_Values31_Result">
+    <Property Type="String" Name="Operator" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="MRP" Nullable="false" Precision="19" />
+    <Property Type="String" Name="ValidateDays" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Roaming" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SMS" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DataSpeed" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Display_Values4_Result">
+    <Property Type="String" Name="Operator" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="MRP" Nullable="false" Precision="19" />
+    <Property Type="String" Name="ValidateDays" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Roaming" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SMS" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DataSpeed" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Display_Values5_Result">
+    <Property Type="String" Name="Operator" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="MRP" Nullable="false" Precision="19" />
+    <Property Type="String" Name="ValidateDays" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Descriptions" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Roaming" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SMS" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DataSpeed" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="LoginVerify_Result">
+    <Property Type="Int64" Name="MobileNumber" Nullable="true" />
+    <Property Type="String" Name="Operator" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="debit_creditcard_table">
+    <Key>
+      <PropertyRef Name="CardNumber" />
+    </Key>
+    <Property Name="CardNumber" Type="Int64" Nullable="false" />
+    <Property Name="CVVNumber" Type="Int32" />
+    <Property Name="ExpiryDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AccountHolderName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserPassword" Type="Int32" />
+    <Property Name="Balance" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+</Schema>

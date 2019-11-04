@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PaymentModelStoreContainer" CdmEntityContainer="PaymentEntities1">
+    <EntitySetMapping Name="debit_creditcard">
+      <EntityTypeMapping TypeName="PaymentModel.debit_creditcard">
+        <MappingFragment StoreEntitySet="debit_creditcard">
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="CVVNumber" ColumnName="CVVNumber" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="AccountHolderName" ColumnName="AccountHolderName" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="table_Registration">
+      <EntityTypeMapping TypeName="PaymentModel.table_Registration">
+        <MappingFragment StoreEntitySet="table_Registration">
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="Plantype" ColumnName="Plantype" />
+          <ScalarProperty Name="SecurityQuestion" ColumnName="SecurityQuestion" />
+          <ScalarProperty Name="SecurityAnswer" ColumnName="SecurityAnswer" />
+          <ScalarProperty Name="NewPassword" ColumnName="NewPassword" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Pro_Detail" FunctionName="PaymentModel.Store.Pro_Detail" />
+    <FunctionImportMapping FunctionImportName="Pro_NetBanking" FunctionName="PaymentModel.Store.Pro_NetBanking" />
+    <FunctionImportMapping FunctionImportName="proc_Login" FunctionName="PaymentModel.Store.proc_Login">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PaymentModel.proc_Login_Result">
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="proc_MobRegistration" FunctionName="PaymentModel.Store.proc_MobRegistration" />
+    <FunctionImportMapping FunctionImportName="proc_Login1" FunctionName="PaymentModel.Store.proc_Login1" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MobileModelStoreContainer" CdmEntityContainer="MobileEntities">
+    <EntitySetMapping Name="table_Registration">
+      <EntityTypeMapping TypeName="MobileModel.table_Registration">
+        <MappingFragment StoreEntitySet="table_Registration">
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="Plantype" ColumnName="Plantype" />
+          <ScalarProperty Name="SecurityQuestion" ColumnName="SecurityQuestion" />
+          <ScalarProperty Name="SecurityAnswer" ColumnName="SecurityAnswer" />
+          <ScalarProperty Name="NewPassword" ColumnName="NewPassword" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Pro_Detail" FunctionName="MobileModel.Store.Pro_Detail" />
+    <FunctionImportMapping FunctionImportName="Pro_NetBanking" FunctionName="MobileModel.Store.Pro_NetBanking" />
+    <FunctionImportMapping FunctionImportName="proc_Login1" FunctionName="MobileModel.Store.proc_Login1" />
+    <FunctionImportMapping FunctionImportName="proc_MobRegistration" FunctionName="MobileModel.Store.proc_MobRegistration" />
+    <EntitySetMapping Name="Operator_Table1">
+      <EntityTypeMapping TypeName="MobileModel.Operator_Table1">
+        <MappingFragment StoreEntitySet="Operator_Table1">
+          <ScalarProperty Name="DataSpeed" ColumnName="DataSpeed" />
+          <ScalarProperty Name="SMS" ColumnName="SMS" />
+          <ScalarProperty Name="Roaming" ColumnName="Roaming" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="ValidateDays" ColumnName="ValidateDays" />
+          <ScalarProperty Name="MRP" ColumnName="MRP" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Display_Values" FunctionName="MobileModel.Store.Display_Values">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MobileModel.Display_Values_Result">
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="MRP" ColumnName="MRP" />
+          <ScalarProperty Name="ValidateDays" ColumnName="ValidateDays" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Roaming" ColumnName="Roaming" />
+          <ScalarProperty Name="SMS" ColumnName="SMS" />
+          <ScalarProperty Name="DataSpeed" ColumnName="DataSpeed" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="proc_PostPaid" FunctionName="MobileModel.Store.proc_PostPaid" />
+    <FunctionImportMapping FunctionImportName="Display_Values1" FunctionName="MobileModel.Store.Display_Values1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MobileModel.Display_Values1_Result">
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="MRP" ColumnName="MRP" />
+          <ScalarProperty Name="ValidateDays" ColumnName="ValidateDays" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Roaming" ColumnName="Roaming" />
+          <ScalarProperty Name="SMS" ColumnName="SMS" />
+          <ScalarProperty Name="DataSpeed" ColumnName="DataSpeed" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Display_Values2" FunctionName="MobileModel.Store.Display_Values2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MobileModel.Display_Values2_Result">
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="MRP" ColumnName="MRP" />
+          <ScalarProperty Name="ValidateDays" ColumnName="ValidateDays" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Roaming" ColumnName="Roaming" />
+          <ScalarProperty Name="SMS" ColumnName="SMS" />
+          <ScalarProperty Name="DataSpeed" ColumnName="DataSpeed" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="proc_PostPaid1" FunctionName="MobileModel.Store.proc_PostPaid1" />
+    <FunctionImportMapping FunctionImportName="proc_PostPaid2" FunctionName="MobileModel.Store.proc_PostPaid2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MobileModel.proc_PostPaid2_Result">
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="proc_Login2" FunctionName="MobileModel.Store.proc_Login2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MobileModel.proc_Login2_Result">
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="proc_CheckNumber" FunctionName="MobileModel.Store.proc_CheckNumber">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MobileModel.proc_CheckNumber_Result">
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="proc_CheckNumber1" FunctionName="MobileModel.Store.proc_CheckNumber1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MobileModel.proc_CheckNumber1_Result">
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_ForgotPassword" FunctionName="MobileModel.Store.Proc_ForgotPassword" />
+    <FunctionImportMapping FunctionImportName="Proc_ForgotPassword1" FunctionName="MobileModel.Store.Proc_ForgotPassword1" />
+    <FunctionImportMapping FunctionImportName="Proc_ForgotPassword2" FunctionName="MobileModel.Store.Proc_ForgotPassword2" />
+    <FunctionImportMapping FunctionImportName="Proc_ForgotPassword3" FunctionName="MobileModel.Store.Proc_ForgotPassword3">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MobileModel.Proc_ForgotPassword3_Result">
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Proc_ForgotPassword4" FunctionName="MobileModel.Store.Proc_ForgotPassword4" />
+    <FunctionImportMapping FunctionImportName="Proc_ForgotPasswordLogin" FunctionName="MobileModel.Store.Proc_ForgotPasswordLogin" />
+    <FunctionImportMapping FunctionImportName="Proc_ForgotPasswordRegister" FunctionName="MobileModel.Store.Proc_ForgotPasswordRegister" />
+    <FunctionImportMapping FunctionImportName="Display_Values31" FunctionName="MobileModel.Store.Display_Values3">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MobileModel.Display_Values31_Result">
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="MRP" ColumnName="MRP" />
+          <ScalarProperty Name="ValidateDays" ColumnName="ValidateDays" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Roaming" ColumnName="Roaming" />
+          <ScalarProperty Name="SMS" ColumnName="SMS" />
+          <ScalarProperty Name="DataSpeed" ColumnName="DataSpeed" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Display_Values4" FunctionName="MobileModel.Store.Display_Values4">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MobileModel.Display_Values4_Result">
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="MRP" ColumnName="MRP" />
+          <ScalarProperty Name="ValidateDays" ColumnName="ValidateDays" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Roaming" ColumnName="Roaming" />
+          <ScalarProperty Name="SMS" ColumnName="SMS" />
+          <ScalarProperty Name="DataSpeed" ColumnName="DataSpeed" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Display_Values5" FunctionName="MobileModel.Store.Display_Values5">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MobileModel.Display_Values5_Result">
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+          <ScalarProperty Name="MRP" ColumnName="MRP" />
+          <ScalarProperty Name="ValidateDays" ColumnName="ValidateDays" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Roaming" ColumnName="Roaming" />
+          <ScalarProperty Name="SMS" ColumnName="SMS" />
+          <ScalarProperty Name="DataSpeed" ColumnName="DataSpeed" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LoginVerify" FunctionName="MobileModel.Store.LoginVerify">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MobileModel.LoginVerify_Result">
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Operator" ColumnName="Operator" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="debit_creditcard_table">
+      <EntityTypeMapping TypeName="MobileModel.debit_creditcard_table">
+        <MappingFragment StoreEntitySet="debit_creditcard_table">
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="AccountHolderName" ColumnName="AccountHolderName" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="CVVNumber" ColumnName="CVVNumber" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Pro_CardDetails" FunctionName="MobileModel.Store.Pro_CardDetails" />
+    <FunctionImportMapping FunctionImportName="Pro_CardDetails1" FunctionName="MobileModel.Store.Pro_CardDetails1" />
+    <FunctionImportMapping FunctionImportName="Pro_CardDetailss" FunctionName="MobileModel.Store.Pro_CardDetailss" />
+    <FunctionImportMapping FunctionImportName="Pro_NetBankingdetail" FunctionName="MobileModel.Store.Pro_NetBankingdetail" />
+    <FunctionImportMapping FunctionImportName="Login_PostPaid" FunctionName="MobileModel.Store.Login_PostPaid" />
+    <FunctionImportMapping FunctionImportName="Login_Validations" FunctionName="MobileModel.Store.Login_Validations" />
+    <FunctionImportMapping FunctionImportName="Validation_PostPaid" FunctionName="MobileModel.Store.Validation_PostPaid" />
+    <FunctionImportMapping FunctionImportName="Validation_CheckNumber" FunctionName="MobileModel.Store.Validation_CheckNumber" />
+  </EntityContainerMapping>
+</Mapping>
